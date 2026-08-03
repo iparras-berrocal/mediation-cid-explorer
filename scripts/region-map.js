@@ -1,248 +1,158 @@
-let REGION_MAP = null;
-let REGION_GEOJSON_LAYER = null;
-let SELECTED_REGION_LAYER = null;
+let REGION_SVG_DOCUMENT = null;
+let REGION_SVG_PATHS = [];
 
-const REGION_STYLE = {
-  regional: {
-    color: "#075969",
-    weight: 2,
-    fillColor: "#0b7285",
-    fillOpacity: 0.10
-  },
-  coastal: {
-    color: "#6c5ce7",
-    weight: 2,
-    fillColor: "#a29bfe",
-    fillOpacity: 0.18
-  },
-  gfcm: {
-    color: "#d97706",
-    weight: 2,
-    fillColor: "#f59e0b",
-    fillOpacity: 0.18
-  },
-  mpa: {
-    color: "#b42318",
-    weight: 2.5,
-    fillColor: "#ef4444",
-    fillOpacity: 0.22
+function getActiveRegionSelect() {
+  const scenarioPanel =
+    document.getElementById("scenario-projections");
+
+  const evaluationPanel =
+    document.getElementById("simulation-evaluation");
+
+  if (scenarioPanel?.classList.contains("active")) {
+    return document.getElementById("cid-region");
   }
-};
 
-function getDefaultRegionStyle(feature) {
-  const category = feature?.properties?.category || "regional";
+  if (evaluationPanel?.classList.contains("active")) {
+    return document.getElementById("eval-region");
+  }
 
-  return REGION_STYLE[category] || REGION_STYLE.regional;
+  return document.getElementById("cid-region");
 }
 
-function getSelectedRegionStyle(feature) {
-  const base = getDefaultRegionStyle(feature);
+function highlightSelectedSvgRegion(regionName) {
+  if (!REGION_SVG_PATHS.length) return;
 
-  return {
-    ...base,
-    weight: 4,
-    fillOpacity: Math.min((base.fillOpacity || 0.15) + 0.18, 0.5)
-  };
-}
+  REGION_SVG_PATHS.forEach(path => {
+    const isSelected =
+      path.dataset.regionName === regionName;
 
-function findRegionLayerByName(regionName) {
-  let foundLayer = null;
-
-  if (!REGION_GEOJSON_LAYER) return null;
-
-  REGION_GEOJSON_LAYER.eachLayer(layer => {
-    if (
-      layer.feature?.properties?.name === regionName
-    ) {
-      foundLayer = layer;
-    }
+    path.classList.toggle("is-selected", isSelected);
+    path.setAttribute("aria-selected", String(isSelected));
   });
 
-  return foundLayer;
+  const selectedName =
+    document.getElementById("region-map-selected-name");
+
+  if (selectedName) {
+    selectedName.textContent =
+      regionName || "No region selected";
+  }
 }
 
-function highlightRegion(regionName, fitBounds = false) {
-  if (!REGION_GEOJSON_LAYER) return;
+function selectRegionFromSvg(regionName) {
+  const activeSelect = getActiveRegionSelect();
 
-  REGION_GEOJSON_LAYER.eachLayer(layer => {
-    layer.setStyle(
-      getDefaultRegionStyle(layer.feature)
-    );
-  });
+  if (!activeSelect) return;
 
-  const layer = findRegionLayerByName(regionName);
-
-  if (!layer) return;
-
-  layer.setStyle(
-    getSelectedRegionStyle(layer.feature)
+  const exists = Array.from(activeSelect.options).some(
+    option => option.value === regionName
   );
 
-  layer.bringToFront();
-
-  SELECTED_REGION_LAYER = layer;
-
-  if (fitBounds) {
-    const bounds = layer.getBounds();
-
-    if (bounds.isValid()) {
-      REGION_MAP.fitBounds(bounds, {
-        padding: [30, 30],
-        maxZoom: 9
-      });
-    }
+  if (!exists) {
+    console.warn(
+      `Region "${regionName}" is not available in the active selector.`
+    );
+    return;
   }
+
+  activeSelect.value = regionName;
+
+  activeSelect.dispatchEvent(
+    new Event("change", { bubbles: true })
+  );
+
+  highlightSelectedSvgRegion(regionName);
 }
 
-function selectRegionFromMap(regionName) {
-  const selectors = [
-    document.getElementById("cid-region"),
-    document.getElementById("eval-region")
-  ];
+function connectSvgRegions() {
+  const svgObject =
+    document.getElementById("region-svg-object");
 
-  selectors.forEach(select => {
-    if (!select) return;
+  if (!svgObject) return;
 
-    const values = Array.from(select.options).map(
-      option => option.value
-    );
+  REGION_SVG_DOCUMENT = svgObject.contentDocument;
 
-    if (!values.includes(regionName)) return;
+  if (!REGION_SVG_DOCUMENT) return;
 
-    select.value = regionName;
-    select.dispatchEvent(
-      new Event("change", { bubbles: true })
-    );
+  REGION_SVG_PATHS = Array.from(
+    REGION_SVG_DOCUMENT.querySelectorAll(".region")
+  );
+
+  REGION_SVG_PATHS.forEach(path => {
+    const regionName =
+      path.dataset.regionName;
+
+    if (!regionName) return;
+
+    path.addEventListener("click", () => {
+      selectRegionFromSvg(regionName);
+    });
+
+    path.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        selectRegionFromSvg(regionName);
+      }
+    });
   });
 
-  highlightRegion(regionName, true);
+  refreshSvgRegionSelection();
 }
 
-function initializeRegionMap() {
-  const mapContainer = document.getElementById("region-map");
-
-  if (!mapContainer || typeof L === "undefined") return;
-
-  REGION_MAP = L.map("region-map", {
-    zoomControl: true,
-    scrollWheelZoom: false
-  }).setView([42.5, 6.0], 6);
-
-  L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      maxZoom: 12,
-      attribution:
-        '&copy; OpenStreetMap contributors'
-    }
-  ).addTo(REGION_MAP);
-
-  fetch("images/mediation-regions.geojson")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(
-          `mediation-regions.geojson could not be loaded (${response.status})`
-        );
-      }
-
-      return response.json();
-    })
-    .then(geojson => {
-      REGION_GEOJSON_LAYER = L.geoJSON(geojson, {
-        style: feature =>
-          getDefaultRegionStyle(feature),
-
-        onEachFeature: (feature, layer) => {
-          const regionName =
-            feature?.properties?.name ||
-            feature?.properties?.code ||
-            "Region";
-
-          layer.bindTooltip(regionName, {
-            sticky: true,
-            direction: "top"
-          });
-
-          layer.on("mouseover", () => {
-            if (layer !== SELECTED_REGION_LAYER) {
-              layer.setStyle({
-                ...getSelectedRegionStyle(feature),
-                weight: 3
-              });
-            }
-          });
-
-          layer.on("mouseout", () => {
-            if (layer !== SELECTED_REGION_LAYER) {
-              layer.setStyle(
-                getDefaultRegionStyle(feature)
-              );
-            }
-          });
-
-          layer.on("click", () => {
-            selectRegionFromMap(regionName);
-          });
-        }
-      }).addTo(REGION_MAP);
-
-      const bounds = REGION_GEOJSON_LAYER.getBounds();
-
-      if (bounds.isValid()) {
-        REGION_MAP.fitBounds(bounds, {
-          padding: [20, 20]
-        });
-      }
-
-      const currentRegion =
-        document.getElementById("cid-region")?.value;
-
-      if (currentRegion) {
-        highlightRegion(currentRegion, false);
-      }
-    })
-    .catch(error => {
-      console.error(error);
-
-      mapContainer.innerHTML = `
-        <p style="
-          padding:20px;
-          color:#b42318;
-          text-align:center;
-        ">
-          Could not load the region map: ${error.message}
-        </p>
-      `;
-    });
-}
-
-function connectRegionSelectorsToMap() {
-  const cidRegion =
+function connectRegionSelectors() {
+  const scenarioRegion =
     document.getElementById("cid-region");
 
-  const evalRegion =
+  const evaluationRegion =
     document.getElementById("eval-region");
 
-  if (cidRegion) {
-    cidRegion.addEventListener("change", () => {
-      highlightRegion(
-        cidRegion.value,
-        false
-      );
+  if (scenarioRegion) {
+    scenarioRegion.addEventListener("change", () => {
+      const scenarioPanel =
+        document.getElementById("scenario-projections");
+
+      if (scenarioPanel?.classList.contains("active")) {
+        highlightSelectedSvgRegion(
+          scenarioRegion.value
+        );
+      }
     });
   }
 
-  if (evalRegion) {
-    evalRegion.addEventListener("change", () => {
-      highlightRegion(
-        evalRegion.value,
-        false
-      );
+  if (evaluationRegion) {
+    evaluationRegion.addEventListener("change", () => {
+      const evaluationPanel =
+        document.getElementById("simulation-evaluation");
+
+      if (evaluationPanel?.classList.contains("active")) {
+        highlightSelectedSvgRegion(
+          evaluationRegion.value
+        );
+      }
     });
+  }
+}
+
+function refreshSvgRegionSelection() {
+  const activeSelect = getActiveRegionSelect();
+
+  if (activeSelect?.value) {
+    highlightSelectedSvgRegion(
+      activeSelect.value
+    );
   }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  initializeRegionMap();
-  connectRegionSelectorsToMap();
+  const svgObject =
+    document.getElementById("region-svg-object");
+
+  if (svgObject) {
+    svgObject.addEventListener(
+      "load",
+      connectSvgRegions
+    );
+  }
+
+  connectRegionSelectors();
 });
