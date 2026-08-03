@@ -6,14 +6,6 @@
 
   <title>MEDIATION CID Explorer</title>
 
-  <!-- Leaflet map styles -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQ3ynRYUqF0sA4CmrB1W3qB5h1h6kL8="
-    crossorigin=""
-  />
-
   <style>
     :root {
       --accent: #0b7285;
@@ -170,7 +162,7 @@
     }
 
     /* =========================================================
-       REGION MAP
+       SVG REGION MAP
        ========================================================= */
 
     .region-map-panel {
@@ -202,70 +194,30 @@
       text-align: right;
     }
 
-    #region-map {
+    #region-svg-container {
       width: 100%;
-      height: 360px;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: #edf4f7;
-      overflow: hidden;
+      background: #ffffff;
     }
 
-    .region-map-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 12px;
+    #region-svg-object {
+      display: block;
+      width: 100%;
+      height: 310px;
+      border: 0;
+      background: #ffffff;
+    }
+
+    .region-map-selection {
+      margin-top: 10px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
     }
 
-    .region-map-legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .region-map-swatch {
-      width: 17px;
-      height: 11px;
-      border: 2px solid;
-      border-radius: 3px;
-    }
-
-    .region-map-swatch.regional {
-      border-color: #075969;
-      background: rgba(11, 114, 133, 0.15);
-    }
-
-    .region-map-swatch.coastal {
-      border-color: #6c5ce7;
-      background: rgba(162, 155, 254, 0.24);
-    }
-
-    .region-map-swatch.gfcm {
-      border-color: #d97706;
-      background: rgba(245, 158, 11, 0.24);
-    }
-
-    .region-map-swatch.mpa {
-      border-color: #b42318;
-      background: rgba(239, 68, 68, 0.28);
-    }
-
-    /* Keep Leaflet controls consistent with the page design */
-    .leaflet-control-zoom a {
-      color: var(--ink);
-    }
-
-    .leaflet-tooltip {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: 0 5px 16px rgba(16, 32, 51, 0.15);
-      color: var(--ink);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      font-weight: 700;
+    .region-map-selection strong {
+      color: var(--accent-dark);
     }
 
     /* =========================================================
@@ -453,8 +405,8 @@
         text-align: left;
       }
 
-      #region-map {
-        height: 300px;
+      #region-svg-object {
+        height: 250px;
       }
     }
 
@@ -488,8 +440,8 @@
         padding: 12px;
       }
 
-      #region-map {
-        height: 280px;
+      #region-svg-object {
+        height: 220px;
       }
     }
   </style>
@@ -570,7 +522,7 @@
   </nav>
 
   <!-- =======================================================
-       SHARED REGION MAP
+       SHARED SVG REGION MAP
        ======================================================= -->
 
   <section class="region-map-panel">
@@ -579,39 +531,28 @@
       <strong>Select a MEDIATION region</strong>
 
       <span>
-        Hover over a polygon to identify it. Click a polygon to update the
-        selected region in the active tool.
+        Select a region from the menu or click its polygon on the map.
       </span>
     </div>
 
-    <div
-      id="region-map"
-      role="application"
-      aria-label="Interactive map of MEDIATION regions"
-    ></div>
+    <div id="region-svg-container">
 
-    <div class="region-map-legend" aria-label="Map region categories">
+      <object
+        id="region-svg-object"
+        type="image/svg+xml"
+        data="images/mediation-regions.svg"
+        aria-label="Interactive map of MEDIATION regions"
+      >
+        Your browser cannot display the interactive region map.
+      </object>
 
-      <span class="region-map-legend-item">
-        <span class="region-map-swatch regional"></span>
-        General region
-      </span>
+    </div>
 
-      <span class="region-map-legend-item">
-        <span class="region-map-swatch coastal"></span>
-        Coastal region
-      </span>
-
-      <span class="region-map-legend-item">
-        <span class="region-map-swatch gfcm"></span>
-        GFCM region
-      </span>
-
-      <span class="region-map-legend-item">
-        <span class="region-map-swatch mpa"></span>
-        Marine protected area
-      </span>
-
+    <div class="region-map-selection">
+      Selected region:
+      <strong id="region-map-selected-name">
+        North-western Mediterranean
+      </strong>
     </div>
 
   </section>
@@ -806,18 +747,11 @@
 
 </main>
 
-<!-- Leaflet JavaScript -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""
-></script>
-
 <!-- Plotting scripts -->
 <script src="scripts/cid-radial-plot.js"></script>
 <script src="scripts/simulation-evaluation-plot.js"></script>
 
-<!-- Interactive region map -->
+<!-- Interactive SVG region selector -->
 <script src="scripts/region-map.js"></script>
 
 <!-- Module navigation -->
@@ -846,18 +780,13 @@
         panel.setAttribute("aria-hidden", String(!isActive));
       });
 
-      /*
-        Leaflet occasionally needs its dimensions recalculated after UI
-        changes. REGION_MAP is declared in region-map.js.
-      */
       window.setTimeout(() => {
         if (
-          typeof REGION_MAP !== "undefined" &&
-          REGION_MAP
+          typeof refreshSvgRegionSelection === "function"
         ) {
-          REGION_MAP.invalidateSize();
+          refreshSvgRegionSelection();
         }
-      }, 100);
+      }, 0);
     });
   });
 </script>
