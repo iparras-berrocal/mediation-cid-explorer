@@ -6,13 +6,17 @@
       "method_C"
     ],
     "regions": [
-      "Mediterranean Sea",
-      "Western Med",
-      "Eastern Med",
-      "Adriatic Sea",
-      "Aegean Sea",
-      "Continental coastline",
-      "Island coastline"
+      "North-western Mediterranean",
+      "North-western Mediterranean coast",
+      "French Mediterranean coast",
+      "GFCM Corsica",
+      "GFCM Gulf of Lion",
+      "GFCM Ligurian–Tyrrhenian",
+      "GFCM Northern Spain",
+      "Calanques MPA",
+      "Corsica MPA",
+      "Gulf of Lion MPA",
+      "Port-Cros MPA"
     ],
     "gwls": [
       1,
@@ -106,10 +110,10 @@
   },
   "data": {
     "method_A": {
-      "Mediterranean Sea": {
+      "North-western Mediterranean": {
         "SST": {
           "fills": [
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E",
@@ -140,7 +144,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -154,9 +158,9 @@
         },
         "Nmonth_sst_p01": {
           "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
             "#2C7FB8",
             "#2C7FB8"
           ],
@@ -173,7 +177,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF"
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "up",
@@ -187,165 +191,13 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
+            "#9ECAE1",
             "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
             "significant": false,
             "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Western Med": {
-        "SST": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         },
@@ -353,7 +205,7 @@
           "fills": [
             "#FDD494",
             "#F89C2E",
-            "#FFFFFF",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -384,7 +236,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1",
+            "#FFFFFF",
             "#9ECAE1"
           ],
           "trend": {
@@ -410,311 +262,7 @@
           }
         }
       },
-      "Eastern Med": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Adriatic Sea": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#FDD494",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Aegean Sea": {
+      "North-western Mediterranean coast": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -777,315 +325,11 @@
         },
         "SSS": {
           "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FDD494"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#FDD494",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FDD494",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FDD494",
-            "#FDD494"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Continental coastline": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
             "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Island coastline": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
@@ -1099,7 +343,281 @@
             "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
             "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "French Mediterranean coast": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Corsica": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
             "#9ECAE1"
           ],
           "trend": {
@@ -1109,10 +627,952 @@
             "source": "CMEMS"
           }
         },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
         "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Gulf of Lion": {
+        "SST": {
           "fills": [
             "#F89C2E",
             "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Ligurian–Tyrrhenian": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Northern Spain": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Calanques MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Corsica MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Gulf of Lion MPA": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
             "#FFFFFF",
             "#F89C2E",
             "#F89C2E"
@@ -1134,12 +1594,149 @@
           ],
           "trend": {
             "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
             "significant": true,
             "raw": "significant increase",
             "source": "ERA5"
           }
         },
-        "Nmonth_ws_p99": {
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Port-Cros MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
@@ -1154,25 +1751,40 @@
             "source": "ERA5"
           }
         },
-        "NMONTH_T20m": {
+        "Nmonth_ws_p99": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
             "source": "CMEMS"
           }
         }
       }
     },
     "method_B": {
-      "Mediterranean Sea": {
+      "North-western Mediterranean": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -1206,7 +1818,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -1220,9 +1832,9 @@
         },
         "Nmonth_sst_p01": {
           "fills": [
+            "#9ECAE1",
             "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
             "#2C7FB8",
             "#2C7FB8"
           ],
@@ -1238,8 +1850,8 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
+            "#2C7FB8",
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "up",
@@ -1249,51 +1861,6 @@
           }
         },
         "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
@@ -1305,113 +1872,6 @@
             "direction": "up",
             "significant": false,
             "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Western Med": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         },
@@ -1419,7 +1879,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FDD494",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -1447,7 +1907,7 @@
         },
         "Nmonth_ws_p99": {
           "fills": [
-            "#9ECAE1",
+            "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1",
@@ -1463,158 +1923,6 @@
         "NMONTH_T20m": {
           "fills": [
             "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Eastern Med": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FDD494",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E",
@@ -1628,159 +1936,7 @@
           }
         }
       },
-      "Adriatic Sea": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#FDD494",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Aegean Sea": {
+      "North-western Mediterranean coast": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -1844,10 +2000,10 @@
         "SSS": {
           "fills": [
             "#FFFFFF",
-            "#F89C2E",
             "#FFFFFF",
             "#FFFFFF",
-            "#FDD494"
+            "#2C7FB8",
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "up",
@@ -1862,19 +2018,19 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF"
+            "#9ECAE1"
           ],
           "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         },
         "SI": {
           "fills": [
             "#FDD494",
-            "#FDD494",
+            "#F89C2E",
             "#FFFFFF",
             "#F89C2E",
             "#F89C2E"
@@ -1892,12 +2048,620 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FDD494"
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
             "significant": false,
             "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "French Mediterranean coast": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Corsica": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Gulf of Lion": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Ligurian–Tyrrhenian": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
             "source": "ERA5"
           }
         },
@@ -1932,7 +2696,7 @@
           }
         }
       },
-      "Continental coastline": {
+      "GFCM Northern Spain": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -1966,7 +2730,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -1981,8 +2745,8 @@
         "Nmonth_sst_p01": {
           "fills": [
             "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
+            "#9ECAE1",
             "#2C7FB8",
             "#2C7FB8"
           ],
@@ -1995,11 +2759,11 @@
         },
         "SSS": {
           "fills": [
-            "#FDD494",
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF"
+            "#2C7FB8",
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "up",
@@ -2013,8 +2777,23 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
           ],
           "trend": {
             "direction": "down",
@@ -2023,33 +2802,18 @@
             "source": "CMEMS"
           }
         },
-        "SI": {
+        "CUIfav": {
           "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
             "significant": true,
             "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
             "source": "ERA5"
           }
         },
@@ -2058,20 +2822,20 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
+            "#9ECAE1",
             "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
+            "significant": true,
+            "raw": "significant increase",
             "source": "ERA5"
           }
         },
         "NMONTH_T20m": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
+            "#FDD494",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -2084,7 +2848,159 @@
           }
         }
       },
-      "Island coastline": {
+      "Calanques MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Corsica MPA": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -2118,7 +3034,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -2132,11 +3048,163 @@
         },
         "Nmonth_sst_p01": {
           "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
             "#2C7FB8",
             "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Gulf of Lion MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "down",
@@ -2150,13 +3218,13 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
+            "#9ECAE1",
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "significant": false,
+            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         },
@@ -2166,20 +3234,20 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1"
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
+            "significant": false,
+            "raw": "non-significant decrease",
             "source": "CMEMS"
           }
         },
         "SI": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -2200,12 +3268,149 @@
           ],
           "trend": {
             "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
             "significant": true,
             "raw": "significant increase",
             "source": "ERA5"
           }
         },
-        "Nmonth_ws_p99": {
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Port-Cros MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
@@ -2220,177 +3425,40 @@
             "source": "ERA5"
           }
         },
-        "NMONTH_T20m": {
+        "Nmonth_ws_p99": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
             "source": "CMEMS"
           }
         }
       }
     },
     "method_C": {
-      "Mediterranean Sea": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Western Med": {
+      "North-western Mediterranean": {
         "SST": {
           "fills": [
             "#FDD494",
@@ -2440,9 +3508,9 @@
           "fills": [
             "#9ECAE1",
             "#9ECAE1",
-            "#9ECAE1",
             "#2C7FB8",
-            "#9ECAE1"
+            "#2C7FB8",
+            "#2C7FB8"
           ],
           "trend": {
             "direction": "down",
@@ -2456,8 +3524,8 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#2C7FB8",
-            "#2C7FB8"
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
@@ -2470,9 +3538,9 @@
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
+            "#FFFFFF",
             "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8"
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
@@ -2485,7 +3553,7 @@
           "fills": [
             "#FDD494",
             "#F89C2E",
-            "#FDD494",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -2516,158 +3584,6 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1",
-            "#9ECAE1"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Eastern Med": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#9ECAE1",
-            "#FFFFFF",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#FFFFFF",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1"
           ],
@@ -2680,7 +3596,7 @@
         },
         "NMONTH_T20m": {
           "fills": [
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E",
@@ -2694,159 +3610,7 @@
           }
         }
       },
-      "Adriatic Sea": {
-        "SST": {
-          "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SBT": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p99": {
-          "fills": [
-            "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "Nmonth_sst_p01": {
-          "fills": [
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#9ECAE1",
-            "#2C7FB8"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "SSS": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "MLD": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "CMEMS"
-          }
-        },
-        "SI": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "down",
-            "significant": false,
-            "raw": "non-significant decrease",
-            "source": "CMEMS"
-          }
-        },
-        "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "NMONTH_T20m": {
-          "fills": [
-            "#FDD494",
-            "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        }
-      },
-      "Aegean Sea": {
+      "North-western Mediterranean coast": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -2909,11 +3673,11 @@
         },
         "SSS": {
           "fills": [
-            "#FDD494",
-            "#FDD494",
             "#FFFFFF",
-            "#F89C2E",
-            "#FDD494"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
@@ -2926,14 +3690,14 @@
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
           ],
           "trend": {
-            "direction": "down",
-            "significant": true,
-            "raw": "significant decrease",
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         },
@@ -2942,8 +3706,8 @@
             "#FDD494",
             "#FFFFFF",
             "#FFFFFF",
-            "#FDD494",
-            "#FFFFFF"
+            "#F89C2E",
+            "#F89C2E"
           ],
           "trend": {
             "direction": "up",
@@ -2957,8 +3721,160 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
             "#FDD494",
-            "#FDD494"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "French Mediterranean coast": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "up",
@@ -2976,29 +3892,29 @@
             "#FFFFFF"
           ],
           "trend": {
-            "direction": "down",
+            "direction": "up",
             "significant": false,
-            "raw": "non-significant decrease",
+            "raw": "non-significant increase",
             "source": "ERA5"
           }
         },
         "NMONTH_T20m": {
           "fills": [
             "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
             "source": "CMEMS"
           }
         }
       },
-      "Continental coastline": {
+      "GFCM Corsica": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -3032,7 +3948,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -3046,9 +3962,161 @@
         },
         "Nmonth_sst_p01": {
           "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Gulf of Lion": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
             "#2C7FB8",
             "#2C7FB8"
           ],
@@ -3079,8 +4147,23 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
           ],
           "trend": {
             "direction": "down",
@@ -3089,37 +4172,7 @@
             "source": "CMEMS"
           }
         },
-        "SI": {
-          "fills": [
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
-            "source": "CMEMS"
-          }
-        },
         "CUIfav": {
-          "fills": [
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF",
-            "#FFFFFF"
-          ],
-          "trend": {
-            "direction": "up",
-            "significant": false,
-            "raw": "non-significant increase",
-            "source": "ERA5"
-          }
-        },
-        "Nmonth_ws_p99": {
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
@@ -3134,23 +4187,38 @@
             "source": "ERA5"
           }
         },
-        "NMONTH_T20m": {
+        "Nmonth_ws_p99": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
             "source": "CMEMS"
           }
         }
       },
-      "Island coastline": {
+      "GFCM Ligurian–Tyrrhenian": {
         "SST": {
           "fills": [
             "#F89C2E",
@@ -3184,7 +4252,7 @@
         "Nmonth_sst_p99": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -3198,11 +4266,315 @@
         },
         "Nmonth_sst_p01": {
           "fills": [
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
-            "#2C7FB8",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
             "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "GFCM Northern Spain": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#2C7FB8",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Calanques MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "down",
@@ -3231,7 +4603,129 @@
             "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
             "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Corsica MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
             "#9ECAE1"
           ],
           "trend": {
@@ -3241,11 +4735,193 @@
             "source": "CMEMS"
           }
         },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
         "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Gulf of Lion MPA": {
+        "SST": {
+          "fills": [
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
           "fills": [
             "#F89C2E",
             "#F89C2E",
             "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#2C7FB8"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FFFFFF",
+            "#FDD494",
+            "#FFFFFF",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -3266,12 +4942,149 @@
           ],
           "trend": {
             "direction": "up",
+            "significant": false,
+            "raw": "non-significant increase",
+            "source": "ERA5"
+          }
+        },
+        "Nmonth_ws_p99": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "up",
             "significant": true,
             "raw": "significant increase",
             "source": "ERA5"
           }
         },
-        "Nmonth_ws_p99": {
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
+            "source": "CMEMS"
+          }
+        }
+      },
+      "Port-Cros MPA": {
+        "SST": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "SBT": {
+          "fills": [
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p99": {
+          "fills": [
+            "#FDD494",
+            "#FFFFFF",
+            "#FDD494",
+            "#F89C2E",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "Nmonth_sst_p01": {
+          "fills": [
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": true,
+            "raw": "significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SSS": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "MLD": {
+          "fills": [
+            "#FFFFFF",
+            "#9ECAE1",
+            "#FFFFFF",
+            "#9ECAE1",
+            "#9ECAE1"
+          ],
+          "trend": {
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "CMEMS"
+          }
+        },
+        "SI": {
+          "fills": [
+            "#FDD494",
+            "#FDD494",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#F89C2E"
+          ],
+          "trend": {
+            "direction": "up",
+            "significant": true,
+            "raw": "significant increase",
+            "source": "CMEMS"
+          }
+        },
+        "CUIfav": {
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
@@ -3286,18 +5099,33 @@
             "source": "ERA5"
           }
         },
-        "NMONTH_T20m": {
+        "Nmonth_ws_p99": {
           "fills": [
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E",
-            "#F89C2E"
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
           ],
           "trend": {
-            "direction": "up",
-            "significant": true,
-            "raw": "significant increase",
+            "direction": "down",
+            "significant": false,
+            "raw": "non-significant decrease",
+            "source": "ERA5"
+          }
+        },
+        "NMONTH_T20m": {
+          "fills": [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF"
+          ],
+          "trend": {
+            "direction": null,
+            "significant": false,
+            "raw": "no_change",
             "source": "CMEMS"
           }
         }
