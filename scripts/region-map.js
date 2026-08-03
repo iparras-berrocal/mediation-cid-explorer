@@ -1,6 +1,10 @@
 let REGION_SVG_DOCUMENT = null;
 let REGION_SVG_PATHS = [];
 
+/* =========================================================
+   ACTIVE TOOL
+   ========================================================= */
+
 function getActiveRegionSelect() {
   const scenarioPanel =
     document.getElementById("scenario-projections");
@@ -19,17 +23,31 @@ function getActiveRegionSelect() {
   return document.getElementById("cid-region");
 }
 
-function highlightSelectedSvgRegion(regionName) {
-  if (!REGION_SVG_PATHS.length) return;
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
-  REGION_SVG_PATHS.forEach(path => {
-    const isSelected =
-      path.dataset.regionName === regionName;
+function selectorContainsRegion(selectElement, regionName) {
+  if (!selectElement || !regionName) return false;
 
-    path.classList.toggle("is-selected", isSelected);
-    path.setAttribute("aria-selected", String(isSelected));
-  });
+  return Array.from(selectElement.options).some(
+    option => option.value === regionName
+  );
+}
 
+function updateMapRegionSelector(regionName) {
+  const mapSelect =
+    document.getElementById("map-region-select");
+
+  if (
+    mapSelect &&
+    selectorContainsRegion(mapSelect, regionName)
+  ) {
+    mapSelect.value = regionName;
+  }
+}
+
+function updateSelectedRegionLabel(regionName) {
   const selectedName =
     document.getElementById("region-map-selected-name");
 
@@ -39,30 +57,67 @@ function highlightSelectedSvgRegion(regionName) {
   }
 }
 
-function selectRegionFromSvg(regionName) {
+/* =========================================================
+   SVG HIGHLIGHT
+   ========================================================= */
+
+function highlightSelectedSvgRegion(regionName) {
+  REGION_SVG_PATHS.forEach(path => {
+    const isSelected =
+      path.dataset.regionName === regionName;
+
+    path.classList.toggle(
+      "is-selected",
+      isSelected
+    );
+
+    path.setAttribute(
+      "aria-selected",
+      String(isSelected)
+    );
+  });
+
+  updateMapRegionSelector(regionName);
+  updateSelectedRegionLabel(regionName);
+}
+
+/* =========================================================
+   CHANGE ACTIVE TOOL REGION
+   ========================================================= */
+
+function setActiveToolRegion(regionName) {
   const activeSelect = getActiveRegionSelect();
 
-  if (!activeSelect) return;
+  if (!activeSelect || !regionName) return;
 
-  const exists = Array.from(activeSelect.options).some(
-    option => option.value === regionName
-  );
-
-  if (!exists) {
+  if (!selectorContainsRegion(activeSelect, regionName)) {
     console.warn(
-      `Region "${regionName}" is not available in the active selector.`
+      `Region "${regionName}" is not available in the active tool.`
     );
+
     return;
   }
 
-  activeSelect.value = regionName;
+  if (activeSelect.value !== regionName) {
+    activeSelect.value = regionName;
 
-  activeSelect.dispatchEvent(
-    new Event("change", { bubbles: true })
-  );
+    activeSelect.dispatchEvent(
+      new Event("change", {
+        bubbles: true
+      })
+    );
+  }
 
   highlightSelectedSvgRegion(regionName);
 }
+
+function selectRegionFromSvg(regionName) {
+  setActiveToolRegion(regionName);
+}
+
+/* =========================================================
+   CONNECT SVG
+   ========================================================= */
 
 function connectSvgRegions() {
   const svgObject =
@@ -70,9 +125,16 @@ function connectSvgRegions() {
 
   if (!svgObject) return;
 
-  REGION_SVG_DOCUMENT = svgObject.contentDocument;
+  REGION_SVG_DOCUMENT =
+    svgObject.contentDocument;
 
-  if (!REGION_SVG_DOCUMENT) return;
+  if (!REGION_SVG_DOCUMENT) {
+    console.warn(
+      "The interactive SVG document could not be accessed."
+    );
+
+    return;
+  }
 
   REGION_SVG_PATHS = Array.from(
     REGION_SVG_DOCUMENT.querySelectorAll(".region")
@@ -84,13 +146,21 @@ function connectSvgRegions() {
 
     if (!regionName) return;
 
-    path.addEventListener("click", () => {
+    path.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+
       selectRegionFromSvg(regionName);
     });
 
     path.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
         event.preventDefault();
+        event.stopPropagation();
+
         selectRegionFromSvg(regionName);
       }
     });
@@ -98,6 +168,10 @@ function connectSvgRegions() {
 
   refreshSvgRegionSelection();
 }
+
+/* =========================================================
+   CONNECT TOOL SELECTORS
+   ========================================================= */
 
 function connectRegionSelectors() {
   const scenarioRegion =
@@ -111,7 +185,9 @@ function connectRegionSelectors() {
       const scenarioPanel =
         document.getElementById("scenario-projections");
 
-      if (scenarioPanel?.classList.contains("active")) {
+      if (
+        scenarioPanel?.classList.contains("active")
+      ) {
         highlightSelectedSvgRegion(
           scenarioRegion.value
         );
@@ -124,7 +200,9 @@ function connectRegionSelectors() {
       const evaluationPanel =
         document.getElementById("simulation-evaluation");
 
-      if (evaluationPanel?.classList.contains("active")) {
+      if (
+        evaluationPanel?.classList.contains("active")
+      ) {
         highlightSelectedSvgRegion(
           evaluationRegion.value
         );
@@ -133,15 +211,47 @@ function connectRegionSelectors() {
   }
 }
 
-function refreshSvgRegionSelection() {
-  const activeSelect = getActiveRegionSelect();
+/* =========================================================
+   CONNECT MAP SELECTOR
+   ========================================================= */
 
-  if (activeSelect?.value) {
-    highlightSelectedSvgRegion(
-      activeSelect.value
+function connectMapRegionSelector() {
+  const mapSelect =
+    document.getElementById("map-region-select");
+
+  if (!mapSelect) return;
+
+  mapSelect.addEventListener("change", () => {
+    setActiveToolRegion(
+      mapSelect.value
     );
-  }
+  });
 }
+
+/* =========================================================
+   REFRESH AFTER TAB CHANGE
+   ========================================================= */
+
+function refreshSvgRegionSelection() {
+  const activeSelect =
+    getActiveRegionSelect();
+
+  if (!activeSelect?.value) {
+    updateSelectedRegionLabel(
+      "No region selected"
+    );
+
+    return;
+  }
+
+  highlightSelectedSvgRegion(
+    activeSelect.value
+  );
+}
+
+/* =========================================================
+   INITIALIZATION
+   ========================================================= */
 
 window.addEventListener("DOMContentLoaded", () => {
   const svgObject =
@@ -152,7 +262,20 @@ window.addEventListener("DOMContentLoaded", () => {
       "load",
       connectSvgRegions
     );
+
+    /*
+      If the SVG is already loaded from browser cache,
+      contentDocument may already be available.
+    */
+    if (svgObject.contentDocument) {
+      connectSvgRegions();
+    }
   }
 
   connectRegionSelectors();
+  connectMapRegionSelector();
+
+  window.setTimeout(() => {
+    refreshSvgRegionSelection();
+  }, 0);
 });
