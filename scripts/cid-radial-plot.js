@@ -9,8 +9,16 @@ const centerX = 360;
 const centerY = 320;
 
 const CID_ORDER = [
-  "SST", "SBT", "Nmonth_sst_p99", "Nmonth_sst_p01", "NMONTH_T20m",
-  "SSS", "MLD", "SI", "Nmonth_ws_p99", "CUIfav"
+  "SST",
+  "SBT",
+  "Nmonth_sst_p99",
+  "Nmonth_sst_p01",
+  "NMONTH_T20m",
+  "SSS",
+  "MLD",
+  "SI",
+  "Nmonth_ws_p99",
+  "CUIfav"
 ];
 
 const CID_LABELS = {
@@ -18,34 +26,51 @@ const CID_LABELS = {
   SBT: "SBT",
   Nmonth_sst_p99: "NM SST>P99",
   Nmonth_sst_p01: "NM SST<P1",
+  NMONTH_T20m: "NM T₂₀ₘ >25°C",
   SSS: "SSS",
   MLD: "MLDₘₐₓ",
   SI: "SI",
-  CUIfav: "CUI",
   Nmonth_ws_p99: "NMτ>P99",
-  NMONTH_T20m: "NM T₂₀ₘ >25°C"
+  CUIfav: "CUI"
 };
 
 const CID_DEFINITIONS = {
   SST: "Sea Surface Temperature",
   SBT: "Sea Bottom Temperature",
-  Nmonth_sst_p99: "Number of months per year with sea surface temperature above the 99th percentile",
-  Nmonth_sst_p01: "Number of months per year with sea surface temperature below the 1st percentile",
-  NMONTH_T20m: "Number of months per year with temperature at 20 m depth above 25°C",
+  Nmonth_sst_p99:
+    "Number of months per year with sea surface temperature above the 99th percentile",
+  Nmonth_sst_p01:
+    "Number of months per year with sea surface temperature below the 1st percentile",
+  NMONTH_T20m:
+    "Number of months per year with temperature at 20 m depth above 25°C",
   SSS: "Sea Surface Salinity",
   MLD: "Annual Maximum Mixed Layer Depth",
   SI: "Stratification Index",
-  Nmonth_ws_p99: "Number of months per year with wind stress above the 99th percentile",
+  Nmonth_ws_p99:
+    "Number of months per year with wind stress above the 99th percentile",
   CUIfav: "Favorable Coastal Upwelling Index"
 };
+
+const REGION_ORDER = [
+  "North-western Mediterranean",
+  "North-western Mediterranean coast",
+  "French Mediterranean coast",
+  "GFCM Corsica",
+  "GFCM Gulf of Lion",
+  "GFCM Ligurian–Tyrrhenian",
+  "GFCM Northern Spain",
+  "Calanques MPA",
+  "Corsica MPA",
+  "Gulf of Lion MPA",
+  "Port-Cros MPA"
+];
 
 const LIKE_ORDER = [
   "High confidence of increase",
   "Low confidence of increase",
   "Low confidence in direction of change",
   "Low confidence of decrease",
-  "High confidence of decrease",
-//  "Not broadly relevant"
+  "High confidence of decrease"
 ];
 
 const IPCC_COLOR_MAP = {
@@ -53,8 +78,7 @@ const IPCC_COLOR_MAP = {
   "Low confidence of increase": "#FDD494",
   "Low confidence in direction of change": "#FFFFFF",
   "Low confidence of decrease": "#9ECAE1",
-  "High confidence of decrease": "#2C7FB8",
- // "Not broadly relevant": "#C9C9C9"
+  "High confidence of decrease": "#2C7FB8"
 };
 
 const CONFIDENCE_DEFINITIONS = {
@@ -71,10 +95,7 @@ const CONFIDENCE_DEFINITIONS = {
     "≥80% agreement on direction of change but <80% agreement on significance of change; negative change.",
 
   "High confidence of decrease":
-    "≥80% agreement on direction of change and ≥80% agreement on significance of change; negative change.",
-
-  "Not broadly relevant":
-    "CID not broadly relevant for the selected region or context."
+    "≥80% agreement on direction of change and ≥80% agreement on significance of change; negative change."
 };
 
 const TREND_DEFINITIONS = {
@@ -95,17 +116,33 @@ const GWL_COLORS = {
 const container = document.getElementById("cid-radial-plot");
 const detailPanel = document.getElementById("cid-detail-panel");
 
+if (!container) {
+  throw new Error(
+    'The element with id "cid-radial-plot" was not found in index.html.'
+  );
+}
+
 container.innerHTML = "";
 
-const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+const svg = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "svg"
+);
+
 svg.setAttribute("width", width);
 svg.setAttribute("height", height);
 svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
 svg.style.maxWidth = "100%";
 svg.style.height = "auto";
+
 container.appendChild(svg);
 
+/* =========================================================
+   HTML TOOLTIP
+   ========================================================= */
+
 const tooltipDiv = document.createElement("div");
+
 tooltipDiv.style.position = "fixed";
 tooltipDiv.style.pointerEvents = "none";
 tooltipDiv.style.background = "rgba(16, 32, 51, 0.96)";
@@ -118,6 +155,7 @@ tooltipDiv.style.maxWidth = "320px";
 tooltipDiv.style.zIndex = "9999";
 tooltipDiv.style.opacity = "0";
 tooltipDiv.style.transition = "opacity 0.12s ease";
+
 document.body.appendChild(tooltipDiv);
 
 function addHtmlTooltip(el, text) {
@@ -138,38 +176,46 @@ function addHtmlTooltip(el, text) {
   });
 }
 
+/* =========================================================
+   SVG HELPERS
+   ========================================================= */
+
 function makeEl(name, attrs = {}) {
-  const el = document.createElementNS("http://www.w3.org/2000/svg", name);
+  const el = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    name
+  );
+
   for (const [key, value] of Object.entries(attrs)) {
     el.setAttribute(key, value);
   }
+
   return el;
 }
 
 function makeSvgTitle(text) {
-  const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  const title = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "title"
+  );
+
   title.textContent = text;
   return title;
 }
 
 function polar(r, angleDeg) {
   const angle = angleDeg * Math.PI / 180;
+
   return {
     x: centerX + r * Math.cos(angle),
     y: centerY + r * Math.sin(angle)
   };
 }
 
-function getCidAngles() {
-  const step = 360 / CID_ORDER.length;
-  const angles = {};
-
-  for (let i = 0; i < CID_ORDER.length; i++) {
-    const cid = CID_ORDER[i];
-    angles[cid] = [-108 + i * step, -108 + (i + 1) * step];
-  }
-
-  return angles;
+function polygonPoints(points) {
+  return points
+    .map(point => `${point.x},${point.y}`)
+    .join(" ");
 }
 
 function clearSvg() {
@@ -178,8 +224,89 @@ function clearSvg() {
   }
 }
 
-function polygonPoints(points) {
-  return points.map(p => `${p.x},${p.y}`).join(" ");
+function drawRadialMessage(message, color = "#5b6b7f") {
+  clearSvg();
+
+  const text = makeEl("text", {
+    x: width / 2,
+    y: height / 2,
+    "text-anchor": "middle",
+    "font-size": 16,
+    fill: color
+  });
+
+  text.textContent = message;
+  svg.appendChild(text);
+}
+
+/* =========================================================
+   REGION SELECTOR
+   ========================================================= */
+
+function getAvailableRegions(method) {
+  const methodData = CID_DATA?.data?.[method];
+
+  if (!methodData) return [];
+
+  const jsonRegions = Object.keys(methodData);
+
+  const orderedRegions = REGION_ORDER.filter(region =>
+    jsonRegions.includes(region)
+  );
+
+  const additionalRegions = jsonRegions.filter(region =>
+    !REGION_ORDER.includes(region)
+  );
+
+  return [...orderedRegions, ...additionalRegions];
+}
+
+function populateRegionSelector(method, preferredRegion = null) {
+  const regionSelect = document.getElementById("cid-region");
+
+  if (!regionSelect) return;
+
+  const availableRegions = getAvailableRegions(method);
+
+  regionSelect.innerHTML = "";
+
+  availableRegions.forEach(region => {
+    const option = document.createElement("option");
+
+    option.value = region;
+    option.textContent = region;
+
+    regionSelect.appendChild(option);
+  });
+
+  if (
+    preferredRegion &&
+    availableRegions.includes(preferredRegion)
+  ) {
+    regionSelect.value = preferredRegion;
+  } else if (availableRegions.length > 0) {
+    regionSelect.value = availableRegions[0];
+  }
+}
+
+/* =========================================================
+   RADIAL GEOMETRY
+   ========================================================= */
+
+function getCidAngles() {
+  const step = 360 / CID_ORDER.length;
+  const angles = {};
+
+  for (let i = 0; i < CID_ORDER.length; i++) {
+    const cid = CID_ORDER[i];
+
+    angles[cid] = [
+      -108 + i * step,
+      -108 + (i + 1) * step
+    ];
+  }
+
+  return angles;
 }
 
 function drawPolygonRingGuides(nRings, nSides) {
@@ -187,22 +314,32 @@ function drawPolygonRingGuides(nRings, nSides) {
 
   for (let i = 0; i < nRings; i++) {
     const r = radius - i * (radius / nRings);
-    const pts = [];
+    const points = [];
 
     for (let j = 0; j < nSides; j++) {
-      pts.push(polar(r, -108 + j * step));
+      points.push(
+        polar(r, -108 + j * step)
+      );
     }
 
-    svg.appendChild(makeEl("polygon", {
-      points: polygonPoints(pts),
-      fill: "none",
-      stroke: "lightgrey",
-      "stroke-width": 1
-    }));
+    svg.appendChild(
+      makeEl("polygon", {
+        points: polygonPoints(points),
+        fill: "none",
+        stroke: "lightgrey",
+        "stroke-width": 1
+      })
+    );
   }
 }
 
-function drawSectorPolygon(rOuter, rInner, angle1, angle2, fill) {
+function drawSectorPolygon(
+  rOuter,
+  rInner,
+  angle1,
+  angle2,
+  fill
+) {
   const points = [
     polar(rOuter, angle1),
     polar(rOuter, angle2),
@@ -210,12 +347,14 @@ function drawSectorPolygon(rOuter, rInner, angle1, angle2, fill) {
     polar(rInner, angle1)
   ];
 
-  svg.appendChild(makeEl("polygon", {
-    points: polygonPoints(points),
-    fill,
-    stroke: "black",
-    "stroke-width": 0.8
-  }));
+  svg.appendChild(
+    makeEl("polygon", {
+      points: polygonPoints(points),
+      fill: fill || "#ffffff",
+      stroke: "black",
+      "stroke-width": 0.8
+    })
+  );
 }
 
 function drawClickableCidSector(angle1, angle2, cid) {
@@ -235,12 +374,14 @@ function drawClickableCidSector(angle1, angle2, cid) {
 
   hitArea.addEventListener("click", () => {
     SELECTED_CID = cid;
-    showCidDetail(cid);
     updatePlot();
   });
 
   hitArea.addEventListener("mouseenter", () => {
-    hitArea.setAttribute("fill", "rgba(11, 114, 133, 0.08)");
+    hitArea.setAttribute(
+      "fill",
+      "rgba(11, 114, 133, 0.08)"
+    );
   });
 
   hitArea.addEventListener("mouseleave", () => {
@@ -250,63 +391,116 @@ function drawClickableCidSector(angle1, angle2, cid) {
   svg.appendChild(hitArea);
 }
 
+/* =========================================================
+   CID LABELS
+   ========================================================= */
+
 function drawCidLabels(angles) {
   for (const cid of CID_ORDER) {
-    const [a1, a2] = angles[cid];
-    const mid = (a1 + a2) / 2;
+    const cidAngles = angles[cid];
+
+    if (!cidAngles) continue;
+
+    const [angle1, angle2] = cidAngles;
+    const mid = (angle1 + angle2) / 2;
 
     let labelRadius = radius * 1.10;
 
-    if (cid === "SST") labelRadius = radius * 1.08;
-    if (cid === "SBT") labelRadius = radius * 1.09;
-    if (cid === "Nmonth_sst_p99") labelRadius = radius * 1.18;
-    if (cid === "Nmonth_sst_p01") labelRadius = radius * 1.18;
-    if (cid === "NMONTH_T20m") labelRadius = radius * 1.12;
-    if (cid === "SSS") labelRadius = radius * 1.08;
-    if (cid === "MLD") labelRadius = radius * 1.08;
-    if (cid === "SI") labelRadius = radius * 1.08;
-    if (cid === "Nmonth_ws_p99") labelRadius = radius * 1.10;
-    if (cid === "CUIfav") labelRadius = radius * 1.08;
+    if (cid === "SST") {
+      labelRadius = radius * 1.08;
+    }
 
-    const p = polar(labelRadius, mid);
+    if (cid === "SBT") {
+      labelRadius = radius * 1.09;
+    }
+
+    if (cid === "Nmonth_sst_p99") {
+      labelRadius = radius * 1.18;
+    }
+
+    if (cid === "Nmonth_sst_p01") {
+      labelRadius = radius * 1.18;
+    }
+
+    if (cid === "NMONTH_T20m") {
+      labelRadius = radius * 1.12;
+    }
+
+    if (cid === "SSS") {
+      labelRadius = radius * 1.08;
+    }
+
+    if (cid === "MLD") {
+      labelRadius = radius * 1.08;
+    }
+
+    if (cid === "SI") {
+      labelRadius = radius * 1.08;
+    }
+
+    if (cid === "Nmonth_ws_p99") {
+      labelRadius = radius * 1.10;
+    }
+
+    if (cid === "CUIfav") {
+      labelRadius = radius * 1.08;
+    }
+
+    const point = polar(labelRadius, mid);
 
     const text = makeEl("text", {
-      x: p.x,
-      y: p.y,
+      x: point.x,
+      y: point.y,
       "text-anchor": "middle",
       "dominant-baseline": "middle",
       "font-size": 14,
       "font-weight": "bold",
-      fill: cid === SELECTED_CID ? "#075969" : "gray",
+      fill:
+        cid === SELECTED_CID
+          ? "#075969"
+          : "gray",
       cursor: "pointer"
     });
 
-    text.textContent = CID_LABELS[cid] || cid;
+    text.textContent =
+      CID_LABELS[cid] || cid;
 
     text.addEventListener("click", () => {
       SELECTED_CID = cid;
-      showCidDetail(cid);
       updatePlot();
     });
 
-    addHtmlTooltip(text, CID_DEFINITIONS[cid] || "Definition not available.");
+    addHtmlTooltip(
+      text,
+      CID_DEFINITIONS[cid] ||
+        "Definition not available."
+    );
+
     svg.appendChild(text);
   }
 }
 
+/* =========================================================
+   GWL LABELS
+   ========================================================= */
+
 function drawGwlLabels(gwls) {
-  const labels = ["Hist."].concat(gwls.slice(1).map(g => `+${g}°C`));
+  const labels = [
+    "Hist.",
+    ...gwls.slice(1).map(gwl => `+${gwl}°C`)
+  ];
+
   const n = gwls.length;
   const ringSize = radius / n;
   const angle = -72;
 
   for (let i = 0; i < n; i++) {
     const r = radius - (i + 0.5) * ringSize;
-    const p = polar(r, angle);
+    const point = polar(r, angle);
 
     const text = makeEl("text", {
-      x: p.x,
-      y: p.y,
+      x: point.x,
+      y: point.y,
       "text-anchor": "middle",
       "dominant-baseline": "middle",
       "font-size": 11,
@@ -314,34 +508,16 @@ function drawGwlLabels(gwls) {
       fill: "black"
     });
 
-    text.textContent = labels[i];
+    text.textContent =
+      labels[i] || gwls[i] || "";
+
     svg.appendChild(text);
   }
 }
 
-function drawTrendArrow(angle1, angle2, trend) {
-  if (!trend || !trend.significant || !trend.direction) return;
-
-  const mid = (angle1 + angle2) / 2;
-  const ringSize = radius / 5;
-  const r = radius - 0.55 * ringSize;
-  const c = polar(r, mid);
-
-  const arrowAngle = trend.direction === "up" ? -45 : 45;
-  const len = 22;
-  const dx = Math.cos(arrowAngle * Math.PI / 180) * len;
-  const dy = Math.sin(arrowAngle * Math.PI / 180) * len;
-
-  svg.appendChild(makeEl("line", {
-    x1: c.x - dx / 2,
-    y1: c.y - dy / 2,
-    x2: c.x + dx / 2,
-    y2: c.y + dy / 2,
-    stroke: "black",
-    "stroke-width": 1.6,
-    "marker-end": "url(#arrowhead)"
-  }));
-}
+/* =========================================================
+   TREND ARROWS
+   ========================================================= */
 
 function addArrowMarker() {
   const defs = makeEl("defs");
@@ -355,20 +531,66 @@ function addArrowMarker() {
     orient: "auto"
   });
 
-  marker.appendChild(makeEl("polygon", {
-    points: "0 0, 8 3, 0 6",
-    fill: "black"
-  }));
+  marker.appendChild(
+    makeEl("polygon", {
+      points: "0 0, 8 3, 0 6",
+      fill: "black"
+    })
+  );
 
   defs.appendChild(marker);
   svg.appendChild(defs);
 }
 
+function drawTrendArrow(angle1, angle2, trend) {
+  if (
+    !trend ||
+    !trend.significant ||
+    !trend.direction
+  ) {
+    return;
+  }
+
+  const mid = (angle1 + angle2) / 2;
+  const ringSize = radius / 5;
+  const r = radius - 0.55 * ringSize;
+  const centre = polar(r, mid);
+
+  const arrowAngle =
+    trend.direction === "up"
+      ? -45
+      : 45;
+
+  const len = 22;
+  const dx =
+    Math.cos(arrowAngle * Math.PI / 180) * len;
+  const dy =
+    Math.sin(arrowAngle * Math.PI / 180) * len;
+
+  svg.appendChild(
+    makeEl("line", {
+      x1: centre.x - dx / 2,
+      y1: centre.y - dy / 2,
+      x2: centre.x + dx / 2,
+      y2: centre.y + dy / 2,
+      stroke: "black",
+      "stroke-width": 1.6,
+      "marker-end": "url(#arrowhead)"
+    })
+  );
+}
+
 function drawLegendArrow(x, y, direction) {
-  const angle = direction === "up" ? -45 : 45;
+  const angle =
+    direction === "up"
+      ? -45
+      : 45;
+
   const len = 16;
-  const dx = Math.cos(angle * Math.PI / 180) * len;
-  const dy = Math.sin(angle * Math.PI / 180) * len;
+  const dx =
+    Math.cos(angle * Math.PI / 180) * len;
+  const dy =
+    Math.sin(angle * Math.PI / 180) * len;
 
   const line = makeEl("line", {
     x1: x - dx / 2,
@@ -382,15 +604,25 @@ function drawLegendArrow(x, y, direction) {
   });
 
   svg.appendChild(line);
+
   return line;
 }
 
+/* =========================================================
+   TITLE AND LEGENDS
+   ========================================================= */
+
 function drawTitle(region) {
+  const titleSize =
+    region.length > 32
+      ? 17
+      : 22;
+
   const text = makeEl("text", {
     x: centerX,
     y: 42,
     "text-anchor": "middle",
-    "font-size": 22,
+    "font-size": titleSize,
     "font-weight": "600",
     fill: "black"
   });
@@ -403,15 +635,17 @@ function drawLegend() {
   const x = 690;
   let y = 180;
 
-  svg.appendChild(makeEl("rect", {
-    x: x - 25,
-    y: y - 40,
-    width: 350,
-    height: 165,
-    fill: "white",
-    stroke: "#cccccc",
-    "stroke-width": 1
-  }));
+  svg.appendChild(
+    makeEl("rect", {
+      x: x - 25,
+      y: y - 40,
+      width: 350,
+      height: 165,
+      fill: "white",
+      stroke: "#cccccc",
+      "stroke-width": 1
+    })
+  );
 
   const title = makeEl("text", {
     x,
@@ -420,14 +654,16 @@ function drawLegend() {
     "font-weight": "bold"
   });
 
-  title.textContent = "Key for level of confidence in future changes";
+  title.textContent =
+    "Key for level of confidence in future changes";
+
   svg.appendChild(title);
 
   y += 4;
 
-  // --- Confidence legend ---
   for (const label of LIKE_ORDER) {
-    const definition = CONFIDENCE_DEFINITIONS[label] || "";
+    const definition =
+      CONFIDENCE_DEFINITIONS[label] || "";
 
     const swatch = makeEl("rect", {
       x,
@@ -440,7 +676,11 @@ function drawLegend() {
       cursor: "help"
     });
 
-    addHtmlTooltip(swatch, definition);
+    addHtmlTooltip(
+      swatch,
+      definition
+    );
+
     svg.appendChild(swatch);
 
     const text = makeEl("text", {
@@ -451,24 +691,30 @@ function drawLegend() {
     });
 
     text.textContent = label;
-    addHtmlTooltip(text, definition);
+
+    addHtmlTooltip(
+      text,
+      definition
+    );
+
     svg.appendChild(text);
 
     y += 23;
   }
 
-  // --- Trend legend ---
   const box2Y = 360;
 
-  svg.appendChild(makeEl("rect", {
-    x: x - 25,
-    y: box2Y - 30,
-    width: 350,
-    height: 72,
-    fill: "white",
-    stroke: "#cccccc",
-    "stroke-width": 1
-  }));
+  svg.appendChild(
+    makeEl("rect", {
+      x: x - 25,
+      y: box2Y - 30,
+      width: 350,
+      height: 72,
+      fill: "white",
+      stroke: "#cccccc",
+      "stroke-width": 1
+    })
+  );
 
   const title2 = makeEl("text", {
     x,
@@ -477,16 +723,26 @@ function drawLegend() {
     "font-weight": "bold"
   });
 
-  title2.textContent = "Key for observational trend evidence";
+  title2.textContent =
+    "Key for observational trend evidence";
+
   svg.appendChild(title2);
 
   const col1X = x + 5;
   const col2X = x + 160;
   const rowY = box2Y + 22;
 
-  // --- Upward trend ---
-  const upArrow = drawLegendArrow(col1X, rowY, "up");
-  addHtmlTooltip(upArrow, TREND_DEFINITIONS["Past upward trend"]);
+  const upArrow =
+    drawLegendArrow(
+      col1X,
+      rowY,
+      "up"
+    );
+
+  addHtmlTooltip(
+    upArrow,
+    TREND_DEFINITIONS["Past upward trend"]
+  );
 
   const upText = makeEl("text", {
     x: col1X + 20,
@@ -495,13 +751,27 @@ function drawLegend() {
     cursor: "help"
   });
 
-  upText.textContent = "Past upward trend";
-  addHtmlTooltip(upText, TREND_DEFINITIONS["Past upward trend"]);
+  upText.textContent =
+    "Past upward trend";
+
+  addHtmlTooltip(
+    upText,
+    TREND_DEFINITIONS["Past upward trend"]
+  );
+
   svg.appendChild(upText);
 
-  // --- Downward trend ---
-  const downArrow = drawLegendArrow(col2X, rowY, "down");
-  addHtmlTooltip(downArrow, TREND_DEFINITIONS["Past downward trend"]);
+  const downArrow =
+    drawLegendArrow(
+      col2X,
+      rowY,
+      "down"
+    );
+
+  addHtmlTooltip(
+    downArrow,
+    TREND_DEFINITIONS["Past downward trend"]
+  );
 
   const downText = makeEl("text", {
     x: col2X + 20,
@@ -510,35 +780,95 @@ function drawLegend() {
     cursor: "help"
   });
 
-  downText.textContent = "Past downward trend";
-  addHtmlTooltip(downText, TREND_DEFINITIONS["Past downward trend"]);
+  downText.textContent =
+    "Past downward trend";
+
+  addHtmlTooltip(
+    downText,
+    TREND_DEFINITIONS["Past downward trend"]
+  );
+
   svg.appendChild(downText);
 }
+
+/* =========================================================
+   RADIAL PLOT
+   ========================================================= */
 
 function drawRadial(method, region) {
   clearSvg();
   addArrowMarker();
 
-  const meta = CID_DATA.metadata;
+  const metadata =
+    CID_DATA?.metadata;
+
+  const data =
+    CID_DATA?.data?.[method]?.[region];
+
+  if (!metadata) {
+    drawRadialMessage(
+      "CID metadata are not available.",
+      "#b42318"
+    );
+
+    return;
+  }
+
+  if (!data) {
+    drawRadialMessage(
+      `No projection data available for ${region} and ${formatMethod(method)}.`,
+      "#b42318"
+    );
+
+    return;
+  }
+
   const angles = getCidAngles();
-  const gwls = meta.gwls;
-  const data = CID_DATA.data[method][region];
+  const gwls =
+    Array.isArray(metadata.gwls)
+      ? metadata.gwls
+      : [];
+
+  if (gwls.length === 0) {
+    drawRadialMessage(
+      "No global warming levels are available.",
+      "#b42318"
+    );
+
+    return;
+  }
 
   const nRings = gwls.length;
   const ringSize = radius / nRings;
 
   drawTitle(region);
-  drawPolygonRingGuides(nRings, 10);
+  drawPolygonRingGuides(
+    nRings,
+    CID_ORDER.length
+  );
 
   for (const cid of CID_ORDER) {
-    if (!data[cid]) continue;
+    const cidData = data[cid];
 
-    const fills = data[cid].fills;
-    const [angle1, angle2] = angles[cid];
+    if (!cidData) continue;
+
+    const fills =
+      Array.isArray(cidData.fills)
+        ? cidData.fills
+        : [];
+
+    const cidAngles = angles[cid];
+
+    if (!cidAngles) continue;
+
+    const [angle1, angle2] = cidAngles;
 
     for (let i = 0; i < fills.length; i++) {
-      const rOuter = radius - i * ringSize;
-      const rInner = radius - (i + 1) * ringSize;
+      const rOuter =
+        radius - i * ringSize;
+
+      const rInner =
+        radius - (i + 1) * ringSize;
 
       drawSectorPolygon(
         rOuter,
@@ -549,8 +879,17 @@ function drawRadial(method, region) {
       );
     }
 
-    drawClickableCidSector(angle1, angle2, cid);
-    drawTrendArrow(angle1, angle2, data[cid].trend);
+    drawClickableCidSector(
+      angle1,
+      angle2,
+      cid
+    );
+
+    drawTrendArrow(
+      angle1,
+      angle2,
+      cidData.trend
+    );
   }
 
   drawCidLabels(angles);
@@ -558,42 +897,78 @@ function drawRadial(method, region) {
   drawLegend();
 }
 
+/* =========================================================
+   CID DETAIL PANEL
+   ========================================================= */
+
 function formatMethod(method) {
-  return method.replace("method_", "Method ").toUpperCase();
+  return method
+    .replace("method_", "Method ")
+    .toUpperCase();
 }
 
 function showCidDetail(cid) {
-  if (!CID_ANOMALIES || !detailPanel) return;
+  if (
+    !CID_ANOMALIES ||
+    !detailPanel
+  ) {
+    return;
+  }
 
-  const method = document.getElementById("cid-method").value;
-  const region = document.getElementById("cid-region").value;
-  const cidInfo = CID_ANOMALIES?.[method]?.[region]?.[cid];
+  const method =
+    document.getElementById("cid-method")?.value;
+
+  const region =
+    document.getElementById("cid-region")?.value;
+
+  if (!method || !region) return;
+
+  const cidInfo =
+    CID_ANOMALIES?.[method]?.[region]?.[cid];
 
   if (!cidInfo) {
     detailPanel.innerHTML = `
       <h3>${CID_LABELS[cid] || cid}</h3>
-      <p><strong>Definition:</strong> ${CID_DEFINITIONS[cid] || "Definition not available."}</p>
-      <p style="margin-top:6px;">No anomaly data available for this CID, method and region.</p>
+
+      <p>
+        <strong>Definition:</strong>
+        ${CID_DEFINITIONS[cid] || "Definition not available."}
+      </p>
+
+      <p style="margin-top:6px;">
+        No anomaly data available for this CID, method and region.
+      </p>
     `;
+
     return;
   }
 
-  function fmtPanel(v) {
-    if (v === null || v === undefined || !isFinite(v)) return "NA";
-    return Number(v).toFixed(2);
+  function fmtPanel(value) {
+    if (
+      value === null ||
+      value === undefined ||
+      !isFinite(value)
+    ) {
+      return "NA";
+    }
+
+    return Number(value).toFixed(2);
   }
 
-  const b = cidInfo.baseline || {};
+  const baseline =
+    cidInfo.baseline || {};
 
   const baselineText =
-    b.point !== null && b.point !== undefined && isFinite(b.point)
+    baseline.point !== null &&
+    baseline.point !== undefined &&
+    isFinite(baseline.point)
       ? `
         <p style="margin-top:6px;">
           <strong>GWL1 baseline:</strong>
-          Mean ${fmtPanel(b.point)} ${cidInfo.unit || ""} ·
-          P10–P90 ${fmtPanel(b.p10)} to ${fmtPanel(b.p90)} ·
-          Min–Max ${fmtPanel(b.min)} to ${fmtPanel(b.max)} ·
-          n=${b.n ?? "NA"}
+          Mean ${fmtPanel(baseline.point)} ${cidInfo.unit || ""} ·
+          P10–P90 ${fmtPanel(baseline.p10)} to ${fmtPanel(baseline.p90)} ·
+          Min–Max ${fmtPanel(baseline.min)} to ${fmtPanel(baseline.max)} ·
+          n=${baseline.n ?? "NA"}
         </p>
       `
       : "";
@@ -601,12 +976,23 @@ function showCidDetail(cid) {
   detailPanel.innerHTML = `
     <h3>
       ${CID_LABELS[cid] || cid}
-      <span style="font-size:13px; font-weight:400; color:#5b6b7f; margin-left:8px;">
+
+      <span
+        style="
+          font-size:13px;
+          font-weight:400;
+          color:#5b6b7f;
+          margin-left:8px;
+        "
+      >
         — anomalies relative to GWL1 baseline
       </span>
     </h3>
 
-    <p><strong>Definition:</strong> ${CID_DEFINITIONS[cid] || "Definition not available."}</p>
+    <p>
+      <strong>Definition:</strong>
+      ${CID_DEFINITIONS[cid] || "Definition not available."}
+    </p>
 
     <p style="margin-top:6px;">
       <strong>Region:</strong> ${region} ·
@@ -616,67 +1002,157 @@ function showCidDetail(cid) {
 
     ${baselineText}
 
-    <div id="cid-anomaly-plot" style="margin-top:14px;"></div>
+    <div
+      id="cid-anomaly-plot"
+      style="margin-top:14px;"
+    ></div>
   `;
 
   drawAnomalyPlot(cidInfo);
 }
 
+/* =========================================================
+   ANOMALY PLOT
+   ========================================================= */
+
 function drawAnomalyPlot(cidInfo) {
-  const plot = document.getElementById("cid-anomaly-plot");
+  const plot =
+    document.getElementById("cid-anomaly-plot");
+
+  if (!plot) return;
+
   plot.innerHTML = "";
 
   const w = 820;
   const h = 250;
-  const margin = { top: 28, right: 60, bottom: 48, left: 75 };
-  const innerW = w - margin.left - margin.right;
-  const innerH = h - margin.top - margin.bottom;
 
-  const gwls = ["1.5", "2", "3", "4"];
+  const margin = {
+    top: 28,
+    right: 60,
+    bottom: 48,
+    left: 75
+  };
+
+  const innerW =
+    w - margin.left - margin.right;
+
+  const innerH =
+    h - margin.top - margin.bottom;
+
+  const gwls = [
+    "1.5",
+    "2",
+    "3",
+    "4"
+  ];
 
   const values = gwls
-    .map(g => cidInfo.gwls[g])
-    .filter(d => d && d.point !== null);
+    .map(gwl => cidInfo?.gwls?.[gwl])
+    .filter(item =>
+      item &&
+      item.point !== null &&
+      item.point !== undefined &&
+      isFinite(item.point)
+    );
 
   if (values.length === 0) {
-    plot.innerHTML = "<p>No valid anomaly values available.</p>";
+    plot.innerHTML =
+      "<p>No valid anomaly values available.</p>";
+
     return;
   }
 
   const allVals = [];
-  values.forEach(d => {
-    ["min", "max", "p10", "p90", "point"].forEach(k => {
-      if (d[k] !== null && isFinite(d[k])) allVals.push(d[k]);
+
+  values.forEach(item => {
+    [
+      "min",
+      "max",
+      "p10",
+      "p90",
+      "point"
+    ].forEach(key => {
+      const value = item[key];
+
+      if (
+        value !== null &&
+        value !== undefined &&
+        isFinite(value)
+      ) {
+        allVals.push(Number(value));
+      }
     });
   });
 
-  const absMax = Math.max(...allVals.map(Math.abs), 0.1);
+  if (allVals.length === 0) {
+    plot.innerHTML =
+      "<p>No valid anomaly values available.</p>";
+
+    return;
+  }
+
+  const absMax = Math.max(
+    ...allVals.map(Math.abs),
+    0.1
+  );
+
   const xMax = absMax * 1.15;
   const xMin = -xMax;
 
-  const xScale = v => margin.left + ((v - xMin) / (xMax - xMin)) * innerW;
-  const yScale = i => margin.top + (i + 0.5) * (innerH / gwls.length);
+  const xScale = value =>
+    margin.left +
+    ((value - xMin) / (xMax - xMin)) *
+      innerW;
 
-  const detailSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const yScale = index =>
+    margin.top +
+    (index + 0.5) *
+      (innerH / gwls.length);
+
+  const detailSvg =
+    document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
+
   detailSvg.setAttribute("width", w);
   detailSvg.setAttribute("height", h);
-  detailSvg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  detailSvg.setAttribute(
+    "viewBox",
+    `0 0 ${w} ${h}`
+  );
+
   detailSvg.style.maxWidth = "100%";
   detailSvg.style.height = "auto";
+
   plot.appendChild(detailSvg);
 
   function add(name, attrs = {}) {
-    const el = document.createElementNS("http://www.w3.org/2000/svg", name);
-    for (const [k, v] of Object.entries(attrs)) {
-      el.setAttribute(k, v);
+    const el =
+      document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        name
+      );
+
+    for (const [key, value] of Object.entries(attrs)) {
+      el.setAttribute(key, value);
     }
+
     detailSvg.appendChild(el);
+
     return el;
   }
 
-  function fmt(v) {
-    if (v === null || !isFinite(v)) return "NA";
-    return Number(v).toFixed(2);
+  function fmt(value) {
+    if (
+      value === null ||
+      value === undefined ||
+      !isFinite(value)
+    ) {
+      return "NA";
+    }
+
+    return Number(value).toFixed(2);
   }
 
   add("line", {
@@ -697,18 +1173,29 @@ function drawAnomalyPlot(cidInfo) {
     "stroke-width": 1
   });
 
-  gwls.forEach((gwl, i) => {
-    const d = cidInfo.gwls[gwl];
-    if (!d || d.point === null) return;
+  gwls.forEach((gwl, index) => {
+    const item =
+      cidInfo?.gwls?.[gwl];
 
-    const y = yScale(i);
-    const color = GWL_COLORS[gwl] || "#D73027";
+    if (
+      !item ||
+      item.point === null ||
+      item.point === undefined ||
+      !isFinite(item.point)
+    ) {
+      return;
+    }
+
+    const y = yScale(index);
+
+    const color =
+      GWL_COLORS[gwl] || "#D73027";
 
     const tooltip =
       `GWL ${gwl}°C\n` +
-      `Mean: ${fmt(d.point)} ${cidInfo.unit || ""}\n` +
-      `P10–P90: ${fmt(d.p10)} to ${fmt(d.p90)}\n` +
-      `Min–Max: ${fmt(d.min)} to ${fmt(d.max)}`;
+      `Mean: ${fmt(item.point)} ${cidInfo.unit || ""}\n` +
+      `P10–P90: ${fmt(item.p10)} to ${fmt(item.p90)}\n` +
+      `Min–Max: ${fmt(item.min)} to ${fmt(item.max)}`;
 
     add("text", {
       x: margin.left - 14,
@@ -719,54 +1206,104 @@ function drawAnomalyPlot(cidInfo) {
       "font-weight": "600"
     }).textContent = `GWL ${gwl}`;
 
-    const minMax = add("line", {
-      x1: xScale(d.min),
-      y1: y,
-      x2: xScale(d.max),
-      y2: y,
-      stroke: color,
-      "stroke-width": 2,
-      opacity: 0.85,
-      cursor: "pointer"
-    });
+    if (
+      isFinite(item.min) &&
+      isFinite(item.max)
+    ) {
+      const minMax = add("line", {
+        x1: xScale(item.min),
+        y1: y,
+        x2: xScale(item.max),
+        y2: y,
+        stroke: color,
+        "stroke-width": 2,
+        opacity: 0.85,
+        cursor: "pointer"
+      });
 
-    minMax.appendChild(makeSvgTitle(tooltip));
+      minMax.appendChild(
+        makeSvgTitle(tooltip)
+      );
 
-    minMax.addEventListener("mouseenter", () => {
-      minMax.style.transition = "all 0.15s ease";
-      minMax.setAttribute("stroke-width", 3);
-      minMax.setAttribute("opacity", 1);
-    });
+      minMax.addEventListener(
+        "mouseenter",
+        () => {
+          minMax.style.transition =
+            "all 0.15s ease";
 
-    minMax.addEventListener("mouseleave", () => {
-      minMax.setAttribute("stroke-width", 2);
-      minMax.setAttribute("opacity", 0.85);
-    });
+          minMax.setAttribute(
+            "stroke-width",
+            3
+          );
 
-    const p1090 = add("line", {
-      x1: xScale(d.p10),
-      y1: y,
-      x2: xScale(d.p90),
-      y2: y,
-      stroke: color,
-      "stroke-width": 6,
-      "stroke-linecap": "round",
-      cursor: "pointer"
-    });
+          minMax.setAttribute(
+            "opacity",
+            1
+          );
+        }
+      );
 
-    p1090.appendChild(makeSvgTitle(tooltip));
+      minMax.addEventListener(
+        "mouseleave",
+        () => {
+          minMax.setAttribute(
+            "stroke-width",
+            2
+          );
 
-    p1090.addEventListener("mouseenter", () => {
-      p1090.style.transition = "all 0.15s ease";
-      p1090.setAttribute("stroke-width", 8);
-    });
+          minMax.setAttribute(
+            "opacity",
+            0.85
+          );
+        }
+      );
+    }
 
-    p1090.addEventListener("mouseleave", () => {
-      p1090.setAttribute("stroke-width", 6);
-    });
+    if (
+      isFinite(item.p10) &&
+      isFinite(item.p90)
+    ) {
+      const p1090 = add("line", {
+        x1: xScale(item.p10),
+        y1: y,
+        x2: xScale(item.p90),
+        y2: y,
+        stroke: color,
+        "stroke-width": 6,
+        "stroke-linecap": "round",
+        cursor: "pointer"
+      });
+
+      p1090.appendChild(
+        makeSvgTitle(tooltip)
+      );
+
+      p1090.addEventListener(
+        "mouseenter",
+        () => {
+          p1090.style.transition =
+            "all 0.15s ease";
+
+          p1090.setAttribute(
+            "stroke-width",
+            8
+          );
+        }
+      );
+
+      p1090.addEventListener(
+        "mouseleave",
+        () => {
+          p1090.setAttribute(
+            "stroke-width",
+            6
+          );
+        }
+      );
+    }
 
     const point = add("circle", {
-      cx: xScale(d.point),
+      cx: xScale(item.point),
       cy: y,
       r: 5,
       fill: color,
@@ -775,29 +1312,67 @@ function drawAnomalyPlot(cidInfo) {
       cursor: "pointer"
     });
 
-    point.appendChild(makeSvgTitle(tooltip));
+    point.appendChild(
+      makeSvgTitle(tooltip)
+    );
 
-    point.addEventListener("mouseenter", () => {
-      point.style.transition = "all 0.15s ease";
-      point.setAttribute("r", 6.5);
-    });
+    point.addEventListener(
+      "mouseenter",
+      () => {
+        point.style.transition =
+          "all 0.15s ease";
 
-    point.addEventListener("mouseleave", () => {
-      point.setAttribute("r", 5);
-    });
+        point.setAttribute(
+          "r",
+          6.5
+        );
+      }
+    );
 
-    add("text", {
-      x: Math.min(xScale(d.max) + 8, margin.left + innerW + 35),
-      y: y + 4,
-      "font-size": 11,
-      fill: color
-    }).textContent = `n=${d.n}`;
+    point.addEventListener(
+      "mouseleave",
+      () => {
+        point.setAttribute(
+          "r",
+          5
+        );
+      }
+    );
+
+    if (
+      item.n !== null &&
+      item.n !== undefined
+    ) {
+      const labelX =
+        isFinite(item.max)
+          ? Math.min(
+              xScale(item.max) + 8,
+              margin.left + innerW + 35
+            )
+          : Math.min(
+              xScale(item.point) + 8,
+              margin.left + innerW + 35
+            );
+
+      add("text", {
+        x: labelX,
+        y: y + 4,
+        "font-size": 11,
+        fill: color
+      }).textContent = `n=${item.n}`;
+    }
   });
 
-  const ticks = [-xMax, -xMax / 2, 0, xMax / 2, xMax];
+  const ticks = [
+    -xMax,
+    -xMax / 2,
+    0,
+    xMax / 2,
+    xMax
+  ];
 
-  ticks.forEach(t => {
-    const x = xScale(t);
+  ticks.forEach(tickValue => {
+    const x = xScale(tickValue);
 
     add("line", {
       x1: x,
@@ -814,7 +1389,10 @@ function drawAnomalyPlot(cidInfo) {
       "text-anchor": "middle",
       "font-size": 13,
       fill: "#5b6b7f"
-    }).textContent = Number(t.toFixed(2)).toString();
+    }).textContent =
+      Number(
+        tickValue.toFixed(2)
+      ).toString();
   });
 
   add("text", {
@@ -823,46 +1401,145 @@ function drawAnomalyPlot(cidInfo) {
     "text-anchor": "middle",
     "font-size": 14,
     fill: "#5b6b7f"
-  }).textContent = `Anomaly ${cidInfo.unit || ""}`;
+  }).textContent =
+    `Anomaly ${cidInfo.unit || ""}`;
 
   add("text", {
     x: margin.left,
     y: 16,
     "font-size": 13,
     fill: "#5b6b7f"
-  }).textContent = "Min–Max (thin), P10–P90 range (thick), ensemble mean (dot), n: number of simulations";
+  }).textContent =
+    "Min–Max (thin), P10–P90 range (thick), ensemble mean (dot), n: number of simulations";
 }
 
-function updatePlot() {
-  const method = document.getElementById("cid-method").value;
-  const region = document.getElementById("cid-region").value;
+/* =========================================================
+   MAIN UPDATE
+   ========================================================= */
 
-  drawRadial(method, region);
+function updatePlot() {
+  const methodSelect =
+    document.getElementById("cid-method");
+
+  const regionSelect =
+    document.getElementById("cid-region");
+
+  if (
+    !methodSelect ||
+    !regionSelect ||
+    !CID_DATA
+  ) {
+    return;
+  }
+
+  const method = methodSelect.value;
+  const region = regionSelect.value;
+
+  if (!region) {
+    drawRadialMessage(
+      `No regions are available for ${formatMethod(method)}.`,
+      "#b42318"
+    );
+
+    return;
+  }
+
+  drawRadial(
+    method,
+    region
+  );
 
   if (SELECTED_CID) {
-    showCidDetail(SELECTED_CID);
+    showCidDetail(
+      SELECTED_CID
+    );
   }
 }
 
+/* =========================================================
+   DATA LOADING
+   ========================================================= */
+
 Promise.all([
-  fetch("images/cid_data.json").then(r => r.json()),
-  fetch("images/cid_anomalies.json").then(r => r.json())
+  fetch("images/cid_data.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(
+          `cid_data.json could not be loaded (${response.status})`
+        );
+      }
+
+      return response.json();
+    }),
+
+  fetch("images/cid_anomalies.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(
+          `cid_anomalies.json could not be loaded (${response.status})`
+        );
+      }
+
+      return response.json();
+    })
 ])
   .then(([cidData, anomalyData]) => {
     CID_DATA = cidData;
     CID_ANOMALIES = anomalyData;
 
-    document
-      .getElementById("cid-method")
-      .addEventListener("change", updatePlot);
+    const methodSelect =
+      document.getElementById("cid-method");
 
-    document
-      .getElementById("cid-region")
-      .addEventListener("change", updatePlot);
+    const regionSelect =
+      document.getElementById("cid-region");
+
+    if (
+      !methodSelect ||
+      !regionSelect
+    ) {
+      throw new Error(
+        "The method or region selector could not be found in index.html."
+      );
+    }
+
+    populateRegionSelector(
+      methodSelect.value
+    );
+
+    methodSelect.addEventListener(
+      "change",
+      () => {
+        const previousRegion =
+          regionSelect.value;
+
+        populateRegionSelector(
+          methodSelect.value,
+          previousRegion
+        );
+
+        updatePlot();
+      }
+    );
+
+    regionSelect.addEventListener(
+      "change",
+      updatePlot
+    );
 
     updatePlot();
   })
   .catch(error => {
-    container.innerHTML =
-      `<p style="color:red;">Could not load CID data: ${error}</p>`;
+    console.error(error);
+
+    container.innerHTML = `
+      <p
+        style="
+          padding:20px;
+          color:#b42318;
+          text-align:center;
+        "
+      >
+        Could not load CID data: ${error.message}
+      </p>
+    `;
   });
