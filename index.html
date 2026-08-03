@@ -166,32 +166,50 @@
        ========================================================= */
 
     .region-map-panel {
-      margin-bottom: 22px;
-      padding: 16px;
+      margin-bottom: 18px;
+      padding: 14px;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 16px;
       background: #ffffff;
-      box-shadow: 0 10px 26px rgba(16, 32, 51, 0.06);
+      box-shadow: 0 6px 16px rgba(16, 32, 51, 0.04);
     }
 
     .region-map-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 12px;
+      align-items: flex-end;
+      gap: 18px;
+      margin-bottom: 10px;
     }
 
-    .region-map-header strong {
+    .region-map-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .region-map-heading strong {
       color: var(--accent-dark);
       font-size: 16px;
     }
 
-    .region-map-header span {
+    .region-map-help {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.4;
-      text-align: right;
+    }
+
+    .region-map-control {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    #map-region-select {
+      min-width: 250px;
     }
 
     #region-svg-container {
@@ -205,15 +223,73 @@
     #region-svg-object {
       display: block;
       width: 100%;
-      height: 310px;
+      height: 255px;
       border: 0;
       background: #ffffff;
     }
 
-    .region-map-selection {
+    .region-map-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 18px;
       margin-top: 10px;
+    }
+
+    .region-map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+    }
+
+    .region-map-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .region-map-swatch {
+      width: 18px;
+      height: 11px;
+      border: 2px solid;
+      border-radius: 3px;
+    }
+
+    .region-map-swatch.regional {
+      border-color: #075969;
+      background: rgba(11, 114, 133, 0.35);
+    }
+
+    .region-map-swatch.coastal {
+      border-color: #5b4dc4;
+      background: rgba(124, 110, 230, 0.30);
+    }
+
+    .region-map-swatch.gfcm {
+      border-color: #d97706;
+      background: rgba(245, 158, 11, 0.30);
+    }
+
+    .region-map-swatch.mpa {
+      border-color: #b42318;
+      background: rgba(239, 68, 68, 0.32);
+    }
+
+    .region-map-selection {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid #d5e8ec;
+      border-radius: 999px;
+      background: #eef9fb;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
     }
 
     .region-map-selection strong {
@@ -398,15 +474,26 @@
     @media (max-width: 700px) {
       .region-map-header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
 
-      .region-map-header span {
-        text-align: left;
+      .region-map-control {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      #map-region-select {
+        flex: 1;
+        min-width: 0;
       }
 
       #region-svg-object {
-        height: 250px;
+        height: 235px;
+      }
+
+      .region-map-footer {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
@@ -441,7 +528,11 @@
       }
 
       #region-svg-object {
-        height: 220px;
+        height: 210px;
+      }
+
+      .region-map-legend {
+        gap: 9px 12px;
       }
     }
   </style>
@@ -528,11 +619,36 @@
   <section class="region-map-panel">
 
     <div class="region-map-header">
-      <strong>Select a MEDIATION region</strong>
 
-      <span>
-        Select a region from the menu or click its polygon on the map.
-      </span>
+      <div class="region-map-heading">
+        <strong>Select a MEDIATION region</strong>
+
+        <span class="region-map-help">
+          Click a polygon on the map or use the region selector.
+        </span>
+      </div>
+
+      <label
+        class="region-map-control"
+        for="map-region-select"
+      >
+        Region
+
+        <select id="map-region-select">
+          <option>North-western Mediterranean</option>
+          <option>North-western Mediterranean coast</option>
+          <option>French Mediterranean coast</option>
+          <option>GFCM Corsica</option>
+          <option>GFCM Gulf of Lion</option>
+          <option>GFCM Ligurian–Tyrrhenian</option>
+          <option>GFCM Northern Spain</option>
+          <option>Calanques MPA</option>
+          <option>Corsica MPA</option>
+          <option>Gulf of Lion MPA</option>
+          <option>Port-Cros MPA</option>
+        </select>
+      </label>
+
     </div>
 
     <div id="region-svg-container">
@@ -548,11 +664,43 @@
 
     </div>
 
-    <div class="region-map-selection">
-      Selected region:
-      <strong id="region-map-selected-name">
-        North-western Mediterranean
-      </strong>
+    <div class="region-map-footer">
+
+      <div
+        class="region-map-legend"
+        aria-label="Region categories"
+      >
+
+        <span class="region-map-legend-item">
+          <span class="region-map-swatch regional"></span>
+          General region
+        </span>
+
+        <span class="region-map-legend-item">
+          <span class="region-map-swatch coastal"></span>
+          Coastal region
+        </span>
+
+        <span class="region-map-legend-item">
+          <span class="region-map-swatch gfcm"></span>
+          GFCM region
+        </span>
+
+        <span class="region-map-legend-item">
+          <span class="region-map-swatch mpa"></span>
+          Marine protected area
+        </span>
+
+      </div>
+
+      <div class="region-map-selection">
+        Selected region:
+
+        <strong id="region-map-selected-name">
+          North-western Mediterranean
+        </strong>
+      </div>
+
     </div>
 
   </section>
@@ -671,7 +819,10 @@
 
         <div id="cid-radial-plot"></div>
 
-        <div id="cid-detail-panel" class="cid-detail-panel">
+        <div
+          id="cid-detail-panel"
+          class="cid-detail-panel"
+        >
 
           <h3>Select a CID</h3>
 
@@ -770,14 +921,20 @@
         const isActive = item === tab;
 
         item.classList.toggle("active", isActive);
-        item.setAttribute("aria-selected", String(isActive));
+        item.setAttribute(
+          "aria-selected",
+          String(isActive)
+        );
       });
 
       panels.forEach(panel => {
         const isActive = panel === targetPanel;
 
         panel.classList.toggle("active", isActive);
-        panel.setAttribute("aria-hidden", String(!isActive));
+        panel.setAttribute(
+          "aria-hidden",
+          String(!isActive)
+        );
       });
 
       window.setTimeout(() => {
