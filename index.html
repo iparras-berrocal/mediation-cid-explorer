@@ -6,6 +6,14 @@
 
   <title>MEDIATION CID Explorer</title>
 
+  <!-- Leaflet map styles -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQ3ynRYUqF0sA4CmrB1W3qB5h1h6kL8="
+    crossorigin=""
+  />
+
   <style>
     :root {
       --accent: #0b7285;
@@ -65,14 +73,6 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-
-    /*
-      Cuando tengas el logo oficial, sube el archivo como:
-
-      images/mediation-logo.png
-
-      y descomenta la etiqueta <img> incluida en el HTML.
-    */
 
     .tag-logo {
       height: 48px;
@@ -167,6 +167,105 @@
 
     .module-panel.active {
       display: block;
+    }
+
+    /* =========================================================
+       REGION MAP
+       ========================================================= */
+
+    .region-map-panel {
+      margin-bottom: 22px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(16, 32, 51, 0.06);
+    }
+
+    .region-map-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .region-map-header strong {
+      color: var(--accent-dark);
+      font-size: 16px;
+    }
+
+    .region-map-header span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    #region-map {
+      width: 100%;
+      height: 360px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #edf4f7;
+      overflow: hidden;
+    }
+
+    .region-map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .region-map-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .region-map-swatch {
+      width: 17px;
+      height: 11px;
+      border: 2px solid;
+      border-radius: 3px;
+    }
+
+    .region-map-swatch.regional {
+      border-color: #075969;
+      background: rgba(11, 114, 133, 0.15);
+    }
+
+    .region-map-swatch.coastal {
+      border-color: #6c5ce7;
+      background: rgba(162, 155, 254, 0.24);
+    }
+
+    .region-map-swatch.gfcm {
+      border-color: #d97706;
+      background: rgba(245, 158, 11, 0.24);
+    }
+
+    .region-map-swatch.mpa {
+      border-color: #b42318;
+      background: rgba(239, 68, 68, 0.28);
+    }
+
+    /* Keep Leaflet controls consistent with the page design */
+    .leaflet-control-zoom a {
+      color: var(--ink);
+    }
+
+    .leaflet-tooltip {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 5px 16px rgba(16, 32, 51, 0.15);
+      color: var(--ink);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     /* =========================================================
@@ -344,6 +443,21 @@
       }
     }
 
+    @media (max-width: 700px) {
+      .region-map-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .region-map-header span {
+        text-align: left;
+      }
+
+      #region-map {
+        height: 300px;
+      }
+    }
+
     @media (max-width: 600px) {
       .page {
         padding: 20px 12px 40px;
@@ -368,6 +482,14 @@
 
       select {
         width: 100%;
+      }
+
+      .region-map-panel {
+        padding: 12px;
+      }
+
+      #region-map {
+        height: 280px;
       }
     }
   </style>
@@ -448,6 +570,53 @@
   </nav>
 
   <!-- =======================================================
+       SHARED REGION MAP
+       ======================================================= -->
+
+  <section class="region-map-panel">
+
+    <div class="region-map-header">
+      <strong>Select a MEDIATION region</strong>
+
+      <span>
+        Hover over a polygon to identify it. Click a polygon to update the
+        selected region in the active tool.
+      </span>
+    </div>
+
+    <div
+      id="region-map"
+      role="application"
+      aria-label="Interactive map of MEDIATION regions"
+    ></div>
+
+    <div class="region-map-legend" aria-label="Map region categories">
+
+      <span class="region-map-legend-item">
+        <span class="region-map-swatch regional"></span>
+        General region
+      </span>
+
+      <span class="region-map-legend-item">
+        <span class="region-map-swatch coastal"></span>
+        Coastal region
+      </span>
+
+      <span class="region-map-legend-item">
+        <span class="region-map-swatch gfcm"></span>
+        GFCM region
+      </span>
+
+      <span class="region-map-legend-item">
+        <span class="region-map-swatch mpa"></span>
+        Marine protected area
+      </span>
+
+    </div>
+
+  </section>
+
+  <!-- =======================================================
        SIMULATION EVALUATION
        ======================================================= -->
 
@@ -487,11 +656,13 @@
       </div>
 
       <div class="plot-card">
+
         <div id="simulation-evaluation-plot">
           <p style="padding: 20px; color: #5b6b7f;">
             Loading simulation-evaluation data…
           </p>
         </div>
+
       </div>
 
     </section>
@@ -536,26 +707,18 @@
           <label class="control" for="cid-region">
             Region
 
-            <!--
-              Estas regiones se mantienen temporalmente para que la copia
-              continúe funcionando con los JSON mediterráneos actuales.
-
-              Cuando tengamos las regiones de MEDIATION, sustituiremos esta
-              lista y actualizaremos las claves de los JSON.
-            -->
-
             <select id="cid-region">
-                <option>North-western Mediterranean</option>
-                <option>North-western Mediterranean coast</option>
-                <option>French Mediterranean coast</option>
-                <option>GFCM Corsica</option>
-                <option>GFCM Gulf of Lion</option>
-                <option>GFCM Ligurian–Tyrrhenian</option>
-                <option>GFCM Northern Spain</option>
-                <option>Calanques MPA</option>
-                <option>Corsica MPA</option>
-                <option>Gulf of Lion MPA</option>
-                <option>Port-Cros MPA</option>
+              <option>North-western Mediterranean</option>
+              <option>North-western Mediterranean coast</option>
+              <option>French Mediterranean coast</option>
+              <option>GFCM Corsica</option>
+              <option>GFCM Gulf of Lion</option>
+              <option>GFCM Ligurian–Tyrrhenian</option>
+              <option>GFCM Northern Spain</option>
+              <option>Calanques MPA</option>
+              <option>Corsica MPA</option>
+              <option>Gulf of Lion MPA</option>
+              <option>Port-Cros MPA</option>
             </select>
           </label>
 
@@ -590,9 +753,9 @@
         <h3>How to use</h3>
 
         <p>
-          Select an ensemble-filtering method and a region. Click a CID sector
-          or label to display anomaly ranges across increasing global warming
-          levels. Hover over the anomaly ranges to inspect their values.
+          Select a region using the map or the region menu, and then select an
+          ensemble-filtering method. Click a CID sector or label to display
+          anomaly ranges across increasing global warming levels.
         </p>
 
       </article>
@@ -643,9 +806,19 @@
 
 </main>
 
-<!-- Existing plotting scripts -->
+<!-- Leaflet JavaScript -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+
+<!-- Plotting scripts -->
 <script src="scripts/cid-radial-plot.js"></script>
 <script src="scripts/simulation-evaluation-plot.js"></script>
+
+<!-- Interactive region map -->
+<script src="scripts/region-map.js"></script>
 
 <!-- Module navigation -->
 <script>
@@ -672,6 +845,19 @@
         panel.classList.toggle("active", isActive);
         panel.setAttribute("aria-hidden", String(!isActive));
       });
+
+      /*
+        Leaflet occasionally needs its dimensions recalculated after UI
+        changes. REGION_MAP is declared in region-map.js.
+      */
+      window.setTimeout(() => {
+        if (
+          typeof REGION_MAP !== "undefined" &&
+          REGION_MAP
+        ) {
+          REGION_MAP.invalidateSize();
+        }
+      }, 100);
     });
   });
 </script>
